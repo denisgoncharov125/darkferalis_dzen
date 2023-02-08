@@ -1,7 +1,7 @@
 import math
 import time
 
-RANGE_CNT = 400000000
+RANGE_CNT = 200000000
 
 
 def test_funct(i: int) -> int:
@@ -48,11 +48,15 @@ def test_cycle_2_function():
 def test_assignment_by_index():
     """Тестирование присвоение коллекции по индексу"""
     t_list = [None] * RANGE_CNT
-    for i in range(RANGE_CNT):
+
+    # Тут для интереса переделаем цикл for на while и протестируем как раз как бы увеличеную скорость на бинарные операции
+    i = RANGE_CNT
+    while i > 0:
+        i -= 1
         t_list[i] = i
 
 
 if __name__ == '__main__':
-    #test_cycle_math()
-    #test_cycle_2_function()
+    test_cycle_math()
+    test_cycle_2_function()
     test_assignment_by_index()
